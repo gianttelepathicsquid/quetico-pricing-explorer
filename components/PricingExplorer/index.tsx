@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, Package, Truck, Warehouse, Settings, RefreshCcw, Plane, Phone, Box, Undo } from 'lucide-react';
+import { ChevronDown, Package, Truck, Warehouse, Settings, RefreshCcw, Plane, Phone, Box } from 'lucide-react';
+import type { ServiceCategory, ServiceCardProps } from './types';
 
-const ServiceCard = ({ service, isExpanded, onToggle, index }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ service, isExpanded, onToggle, index }) => {
   return (
     <div 
       className="mb-4 transform transition-all duration-300 hover:scale-[1.01]"
@@ -62,10 +63,10 @@ const ServiceCard = ({ service, isExpanded, onToggle, index }) => {
   );
 };
 
-const PricingExplorer = () => {
-  const [expandedId, setExpandedId] = useState(null);
+const PricingExplorer: React.FC = () => {
+  const [expandedId, setExpandedId] = useState<number | null>(null);
 
-  const services = [
+  const services: ServiceCategory[] = [
     {
       id: 1,
       title: 'Initial Set-Up',
